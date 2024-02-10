@@ -3,8 +3,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center ;
+  position:fixed;
+  top: 0px;
+  background-color: var(--bg);
+  width: 100%;
+  z-index: 20000;
 }
 .logo{
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
+  font-family: 'Pacifico', cursive;
 }

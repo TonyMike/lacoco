@@ -10,10 +10,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div className="  m-auto w-[1536px]">
+        <div className="flex flex-col justify-between min-h-screen  ">
           <NavBar />
-          {children}
-          <Footer />
+          <div className="relative top-[100px] px-6 md:px-24 py-4">
+            {children}
+          </div>
+          {/* <Footer className='bg-red-300' /> */}
         </div>
 
       </body>
