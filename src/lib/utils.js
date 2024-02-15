@@ -7,7 +7,7 @@ export const connectToDb = async () => {
       console.log('Using existing connection')
       return;
     }
-    const db = await mongoose.connect(`${process.env.MONGO}`);
+    const db = await mongoose.connect('mongodb+srv://teejhay1:teejhay1@lacoco.pi0lyke.mongodb.net/lacocowebsite?retryWrites=true&w=majority');
     connection.isConnected = db.connections[0].readyState
   } catch (error) {
     console.error(error)
