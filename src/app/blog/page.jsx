@@ -1,26 +1,24 @@
 import PostCard from '@/components/postCard/postCard';
+import { getPosts } from '@/lib/data';
 import styles from './blog.module.css';
+/**
+ * Renders the blog page by fetching posts from the data layer
+ * and rendering PostCard components for each post.
+*/
 
-const BlogPage = () => {
+
+const BlogPage = async () => {
+  const posts = await getPosts();
   return (
     <div className={styles.container}>
-      <div className={styles.post}>
-        <PostCard />
-      </div>
-      <div className={styles.post}>
-        <PostCard />
-      </div>
-      <div className={styles.post}>
-        <PostCard />
-      </div>
-      <div className={styles.post}>
-        <PostCard />
-      </div>
-      <div className={styles.post}>
-        <PostCard />
-      </div>
+      {posts.map((post) => (
+        <div className={styles.post} key={post.id}>
+          <PostCard post={post} />
+        </div>
+      ))}
     </div>
   );
-}
+};
+
 
 export default BlogPage;
