@@ -13,11 +13,11 @@ import styles from './slug.module.css';
  * Applies styles from slug.module.css.
  */
 
-export const generateMeta = async ({ params }) => {
+export const generateMetadata = async ({ params }) => {
   const post = await getPost(params.postId);
   return {
     title: post.title,
-    description: post.body.slice(0, 100)
+    description: post.desc
   }
 }
 
