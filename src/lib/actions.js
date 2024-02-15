@@ -26,7 +26,7 @@ export const addPost = async (formData) => {
       })
       console.log('post created')
       post.save()
-      revalidatePath('/posts')
+      revalidatePath('/blog')
     }
 
 
