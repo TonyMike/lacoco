@@ -13,6 +13,13 @@ import styles from './slug.module.css';
  * Applies styles from slug.module.css.
  */
 
+export const generateMeta = async ({ params }) => {
+  const post = await getPost(params.postId);
+  return {
+    title: post.title,
+    description: post.body.slice(0, 100)
+  }
+}
 
 const SingleBlogPage = async ({ params }) => {
   const post = await getPost(params.postId);
@@ -25,7 +32,7 @@ const SingleBlogPage = async ({ params }) => {
       <div className={styles.textContainer}>
         <h1 className={styles.title}>{post?.title}</h1>
         <div className={styles.details}>
-          
+
           <PostUser userId={post?.userId} />
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
