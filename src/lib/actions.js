@@ -1,8 +1,11 @@
+"use server";
+
+import { revalidatePath } from "next/cache";
 import { Post } from "./models";
 import { connectToDb } from "./utils";
 
 export const addPost = async (formData) => {
-  "use server";
+
 
 
   const { title, desc, slug, userId } = Object.fromEntries(formData)
@@ -23,6 +26,7 @@ export const addPost = async (formData) => {
       })
       console.log('post created')
       post.save()
+      revalidatePath('/posts')
     }
 
 
